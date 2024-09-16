@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request
+from dotenv import load_dotenv
+import os
 import requests
 
 app = Flask(__name__)
 
+load_dotenv() 
 # OpenWeatherMap API key (replace 'your_api_key' with your actual key)
-API_KEY = '684210f7c7ae30dfd4154388aa4a6610'
-BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
+API_KEY = os.getenv("API_KEY")
+BASE_URL = os.getenv("BASE_URL")
 
 @app.route('/', methods=['GET', 'POST'])
 def weather():
