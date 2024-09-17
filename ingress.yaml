@@ -1,19 +1,44 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name:  weather-app-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-  - host: my-app.example.com  # Replace with your domain
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: weather-app-service
-            port:
-              number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name:  weather-app-ingress
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: weatherapp.store  # Replace with your domain
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: weather-app-service
+#             port:
+#               number: 80
+
+
+
+  apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    name: weather-app-ingress
+  spec:
+    ingressClassName: nginx
+    rules:
+      - host: weatherapp.store 
+        http:
+          paths:
+            - pathType: Prefix
+              backend:
+                service:
+                  name: weather-app-service
+                  port:
+                    number: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    # tls:
+    #   - hosts:
+    #     - www.example.com
+    #     secretName: example-tls
+             
 

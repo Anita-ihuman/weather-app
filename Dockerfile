@@ -9,6 +9,7 @@ COPY requirements.txt .
 
 # Install any dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install python-dotenv
 
 # Copy the rest of the application files to the container
 COPY . .

@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: weather-app
-        image: anitaihuman/weather-app:latest
+        image: anitaihuman/weather-app:v2
         ports:
         - containerPort: 5000
