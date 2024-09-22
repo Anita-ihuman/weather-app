@@ -14,6 +14,35 @@ spec:
     spec:
       containers:
       - name: weather-app
-        image: anitaihuman/weather-app:v2
+        image: anitaihuman/weather-app:v7
         ports:
-        - containerPort: 5000
+        - containerPort: 5001
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: weather-app-deployment
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: weather-app
+#   template:
+#     metadata:
+#       labels:
+#         app: weather-app
+#     spec:
+#       containers:
+#       - name: weather-app
+#         image: anitaihuman/weather-app:v7
+#         ports:
+#         - containerPort: 5001
+#       affinity:
+#         nodeAffinity:
+#           requiredDuringSchedulingIgnoredDuringExecution:
+#             nodeSelectorTerms:
+#             - matchExpressions:
+#               - key: kubernetes.io/arch
+#                 operator: In
+#                 values:
+#                 - amd64

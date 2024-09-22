@@ -14,8 +14,8 @@ RUN pip install python-dotenv
 # Copy the rest of the application files to the container
 COPY . .
 
-# Expose port 5000 for Flask
-EXPOSE 5000
+# Expose port 5001 for Flask
+EXPOSE 5001
 
 # Run the Flask app
 CMD ["python", "app.py"]

@@ -8,6 +8,6 @@ spec:
   ports:
     - protocol: TCP
       port: 80       # Port exposed to the outside world
-      targetPort: 5000 # The port on the container where the app is running
-  type: NodePort
+      targetPort: 5001 # The port on the container where the app is running
+  type: LoadBalancer
 

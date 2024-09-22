@@ -1,0 +1,9 @@
+{
+    "target": "pod/weather-app-deployment",
+    "feature": {
+      "env": true,
+      "fs": "read",
+      "network": true,
+      "operator": true
+    }
+  
